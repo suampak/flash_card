@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Flash Card</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_card_lists">Word Lists</string>
+    <string name="title_activity_card_edit">Edit Word</string>
+
+    <string-array name="word_difficult">
+        <item>Easy</item>
+        <item>Medium</item>
+        <item>Hard</item>
+    </string-array>
+</resources>
