@@ -26,7 +26,6 @@ public class CardEditActivity extends AppCompatActivity {
     public static final int POSITION_NOT_SET = -1;
     private CardContent mCard;
     private int mPosition;
-    private boolean mIsSaved;
     private final List<String> mCategoryList = new ArrayList<String>();
     private boolean mIsNewCard;
     private EditText mWord;
@@ -71,7 +70,7 @@ public class CardEditActivity extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        if(mIsNewCard && !mIsSaved) {
+        if(mIsNewCard) {
             DataManager.getInstance().removeCard(mPosition);
         }
     }
@@ -82,7 +81,6 @@ public class CardEditActivity extends AppCompatActivity {
         mIsNewCard = mPosition == POSITION_NOT_SET;
         DataManager dm = DataManager.getInstance();
         if(mIsNewCard) {
-            mIsSaved = false;
             mPosition = dm.createNewCard();
         }
         mCard = dm.getCards().get(mPosition);
@@ -163,7 +161,7 @@ public class CardEditActivity extends AppCompatActivity {
     }
 
     private void saveCard() {
-        mIsSaved = true;
+        mIsNewCard = false;
         mCard.setWord(mWord.getText().toString());
         mCard.setMeaning(mMeaning.getText().toString());
         mCard.setCategory(mCategoryList);

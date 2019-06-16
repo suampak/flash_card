@@ -5,9 +5,14 @@ import android.content.Intent;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.Filter;
+import android.widget.Filterable;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CardRecyclerAdaptor extends RecyclerView.Adapter<CardRecyclerAdaptor.ViewHolder> {
